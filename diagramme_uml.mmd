@@ -1,0 +1,74 @@
+classDiagram
+    class Utilisateurs {
+        +int utilisateur_id
+        +string nom_utilisateur
+        +string email
+        +string mot_de_passe_hash
+        +enum role
+        +decimal score_confiance
+        +timestamp date_inscription
+    }
+
+    class Projets {
+        +int projet_id
+        +string titre
+        +text description
+        +enum statut
+        +timestamp date_soumission
+        +int entrepreneur_id
+        +string certificat_pi
+    }
+
+    class Opportunites {
+        +int opportunite_id
+        +string titre
+        +text description
+        +enum type_opportunite
+        +int investisseur_id
+        +timestamp date_publication
+    }
+
+    class Commentaires {
+        +int commentaire_id
+        +text contenu
+        +timestamp date_commentaire
+        +int utilisateur_id
+        +int projet_id
+        +int opportunite_id
+    }
+
+    class Evaluations {
+        +int evaluation_id
+        +int score
+        +text commentaire
+        +int evalue_par_utilisateur_id
+        +int utilisateur_evalue_id
+    }
+
+    class Signalements {
+        +int signalement_id
+        +text raison
+        +int utilisateur_signalant_id
+        +int projet_signale_id
+        +int administrateur_id
+    }
+
+    class Etiquettes {
+        +int etiquette_id
+        +string nom_etiquette
+    }
+
+    Utilisateurs "1" -- "*" Projets : soumet
+    Utilisateurs "1" -- "*" Opportunites : publie
+    Utilisateurs "1" -- "*" Commentaires : écrit
+    Utilisateurs "1" -- "*" Evaluations : évalue/est évalué
+    Utilisateurs "1" -- "*" Signalements : signale/gère
+
+    Projets "1" -- "*" Commentaires : reçoit
+    Opportunites "1" -- "*" Commentaires : reçoit
+    
+    Projets "*" -- "*" Etiquettes : possède
+    Opportunites "*" -- "*" Etiquettes : possède
+
+    Projets "1" -- "*" Signalements : est signalé
+    Commentaires "1" -- "*" Signalements : est signalé

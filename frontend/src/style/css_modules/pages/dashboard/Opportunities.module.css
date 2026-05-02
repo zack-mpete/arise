@@ -1,0 +1,219 @@
+.dealFlowContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pageHeader {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+  .pageHeader {
+    margin-bottom: 32px;
+  }
+}
+
+.pageTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+@media (min-width: 640px) {
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+}
+
+.pageDesc {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* Kanban Board */
+.kanbanBoard {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  flex: 1;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1024px) {
+  .kanbanBoard {
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.kanbanColumn {
+  min-width: 85vw;
+  max-width: 85vw;
+  scroll-snap-align: center;
+  background-color: rgba(0, 0, 0, 0.01);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border);
+  background: var(--muted);
+}
+
+@media (min-width: 480px) {
+  .kanbanColumn {
+    min-width: 320px;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
+}
+
+.columnHeader {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  color: var(--foreground);
+  font-size: 0.9375rem;
+}
+
+.columnCount {
+  background-color: var(--card);
+  color: var(--primary);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.columnBody {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .columnBody {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+/* Kanban Card (Opportunity) */
+.oppCard {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.oppCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.oppHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.oppTitle {
+  font-weight: 700;
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.oppCategory {
+  font-size: 0.7rem;
+  color: var(--primary);
+  background-color: rgba(30, 64, 175, 0.08);
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.oppDesc {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.oppMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-bottom: 16px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oppActions {
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.actionBtn {
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background-color: var(--muted);
+  border-color: var(--muted-foreground);
+}
+
+.primaryAction {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+
+.primaryAction:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+}
+

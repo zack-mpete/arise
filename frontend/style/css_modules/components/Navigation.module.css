@@ -1,0 +1,97 @@
+/* Navigation Component Styles */
+/* Design Philosophy: Minimalisme Technologique Élégant */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  padding: 0 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.navBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navLogo {
+  width: 2rem;
+  height: 2rem;
+  background-color: #1E40AF;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #FFFFFF;
+}
+
+.navBrandText {
+  font-weight: 700;
+  color: #111827;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .navBrandText {
+    display: inline;
+  }
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navLink {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #111827;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: #F3F4F6;
+}
+
+@media (min-width: 640px) {
+  .navLink {
+    display: inline-flex;
+  }
+}
+
+.navButton {
+  background-color: #1E40AF;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.navButton:hover {
+  background-color: #1E3A8A;
+}

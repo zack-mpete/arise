@@ -1,0 +1,265 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background);
+  padding-bottom: 72px; /* Space for bottom nav */
+}
+
+@media (min-width: 1025px) {
+  .layout {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+}
+
+/* Sidebar Styling - Mobile Hidden by default */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: var(--card);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 150;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+@media (min-width: 1025px) {
+  .sidebar {
+    position: sticky;
+    transform: translateX(0);
+    height: 100vh;
+    z-index: 40;
+  }
+}
+
+.sidebarHeader {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--foreground);
+}
+
+.sidebarNav {
+  flex: 1;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navItem:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+  transform: translateX(4px);
+}
+
+.navItemActive {
+  background-color: rgba(30, 64, 175, 0.1);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.sidebarFooter {
+  padding: 24px 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* Main Content Area */
+.mainArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header {
+  height: 64px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@media (min-width: 1025px) {
+  .header {
+    height: 72px;
+    padding: 0 32px;
+    background: var(--card);
+    backdrop-filter: none;
+  }
+}
+
+.pageTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .pageTitle {
+    font-size: 1.25rem;
+  }
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .headerActions {
+    gap: 16px;
+  }
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .userAvatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.userInfo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .userInfo {
+    display: block;
+    text-align: right;
+  }
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  line-height: 1.2;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.contentWrapper {
+  padding: 20px;
+  flex: 1;
+}
+
+@media (min-width: 1025px) {
+  .contentWrapper {
+    padding: 32px;
+  }
+}
+
+/* Controls */
+.menuToggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.menuToggleBtn:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+@media (min-width: 1025px) {
+  .header .menuToggleBtn {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 140;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlayActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+

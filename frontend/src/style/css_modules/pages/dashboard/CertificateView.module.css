@@ -1,0 +1,211 @@
+.certificateContainer {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  min-height: 100vh;
+}
+
+.actionHeader {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.backBtn, .printBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.backBtn {
+  color: var(--muted-foreground);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.backBtn:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.printBtn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+
+.printBtn:hover {
+  opacity: 0.9;
+}
+
+/* Document Officiel */
+.certificateDocument {
+  background-color: #ffffff; /* Toujours blanc, même en mode sombre */
+  width: 100%;
+  max-width: 900px;
+  min-height: 600px;
+  border: 10px solid var(--primary);
+  padding: 60px;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  color: #1e293b; /* Texte foncé pour lisibilité */
+  font-family: 'Times New Roman', Times, serif; /* Look plus officiel */
+}
+
+/* Watermark */
+.certificateDocument::after {
+  content: "VALIDE";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 150px;
+  color: rgba(30, 64, 175, 0.05); /* Filigrane très subtil */
+  font-weight: bold;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.certHeader {
+  margin-bottom: 60px;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 auto 24px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.certTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid #cbd5e1;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+.certSubtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.certBody {
+  margin-bottom: 60px;
+  font-size: 1.25rem;
+  line-height: 2;
+}
+
+.highlight {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--primary);
+  display: block;
+  margin: 16px 0;
+}
+
+.certFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 80px;
+  border-top: 1px solid #cbd5e1;
+  padding-top: 40px;
+}
+
+.signatureBox {
+  text-align: center;
+}
+
+.signatureLine {
+  width: 200px;
+  border-bottom: 1px solid #0f172a;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+/* Fausse signature script */
+.signatureLine::after {
+  content: "Admin I.H.";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2rem;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.seal {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px dashed var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sealInner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(30, 64, 175, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Style d'impression */
+@media print {
+  body {
+    background-color: white;
+  }
+  .actionHeader, nav {
+    display: none !important;
+  }
+  .certificateContainer {
+    padding: 0;
+  }
+  .certificateDocument {
+    box-shadow: none;
+    border: none;
+  }
+}
